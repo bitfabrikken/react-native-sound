@@ -203,12 +203,10 @@ RCT_EXPORT_METHOD(prepare
         player = [[AVAudioPlayer alloc] initWithData:data fileTypeHint:AVFileTypeMPEGLayer3 error:&error];
     } else if ([fileNameEscaped hasPrefix:@"ipod-library://"]) {
         fileNameUrl = [NSURL URLWithString:fileNameEscaped];
-        player = [[AVAudioPlayer alloc] fileTypeHint:AVFileTypeMPEGLayer3 initWithContentsOfURL:fileNameUrl
-                                                        error:&error];
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileNameUrl fileTypeHint:AVFileTypeMPEGLayer3 error:&error];
     } else {
         fileNameUrl = [NSURL URLWithString:fileNameEscaped];
-        player = [[AVAudioPlayer alloc] fileTypeHint:AVFileTypeMPEGLayer3 initWithContentsOfURL:fileNameUrl
-                                                        error:&error];
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileNameUrl fileTypeHint:AVFileTypeMPEGLayer3 error:&error];
     }
 
     if (player) {
